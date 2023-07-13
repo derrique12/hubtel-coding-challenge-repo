@@ -34,17 +34,15 @@ samples, guidance on mobile development, and a full API reference.
 <img src ="https://github.com/derrique12/hubtel-coding-challenge-repo/assets/42379936/bdfa1f27-e819-431a-bed2-75a3fae9a8da" width="300"/>
     </td>
   <td>
-<img src ="(https://github.com/derrique12/hubtel-coding-challenge-repo/assets/42379936/9d63023b-c17f-4196-b525-a3d5ed8b6262" width="300"/>
+<img src ="https://github.com/derrique12/hubtel-coding-challenge-repo/assets/42379936/9d63023b-c17f-4196-b525-a3d5ed8b6262" width="300"/>
     </td>
      <td>
 <img src ="https://github.com/derrique12/hubtel-coding-challenge-repo/assets/42379936/c5cf7017-fb7b-4e7f-a447-58a2d443daa6"  width="300"/
        </td>
     </tr>
 
-
 </table>
 
-![Screenshot_1689276407](https://github.com/derrique12/hubtel-coding-challenge-repo/assets/42379936/9d63023b-c17f-4196-b525-a3d5ed8b6262)
 
 
 
