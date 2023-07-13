@@ -5,4 +5,5 @@ class Palette {
   static const Color inactiveColor = Color(0xFFCBCBCB);
   static const Color blackColor = Color(0xFF000000);
   static const Color homeBackground = Color(0xFFCCF3EF);
+  static const Color textColor = Color(0xFF9CABB8);
 }
