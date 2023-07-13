@@ -129,45 +129,48 @@ class TransactionCard extends StatelessWidget {
           Row(
             children: [
               /////// Type annd description /////////
-              Expanded(
-                child: Row(
-                  children: [
-                    SvgPicture.asset('assets/icons/person.svg'),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    /////// transactiion type/////
-                    Text(
-                      transaction.type,
-                      style: const TextStyle(fontSize: 13),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5.0),
-                      child: CircleAvatar(
-                        radius: 3,
-                        backgroundColor: Color(0xFF9CABB8),
-                      ),
-                    ),
-
-                    ////// description ///////
-                    Expanded(
-                      child: Text(
-                        transaction.description,
-                        maxLines: 1,
-                        style: const TextStyle(
-                            fontSize: 13, overflow: TextOverflow.ellipsis),
-                      ),
-                    )
-                  ],
-                ),
+              SvgPicture.asset('assets/icons/person.svg'),
+              const SizedBox(
+                width: 10,
               ),
+              Text(
+                transaction.type,
+                style: const TextStyle(fontSize: 13),
+              ),
+              if (transaction.description.isNotEmpty)
+                Expanded(
+                  child: Row(
+                    children: [
+                      /////// transactiion type/////
+
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 5.0),
+                        child: CircleAvatar(
+                          radius: 3,
+                          backgroundColor: Color(0xFF9CABB8),
+                        ),
+                      ),
+
+                      ////// description ///////
+                      Expanded(
+                        child: Text(
+                          transaction.description,
+                          maxLines: 1,
+                          style: const TextStyle(
+                              fontSize: 13, overflow: TextOverflow.ellipsis),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
 
               const SizedBox(
                 width: 5,
               ),
 
-              /////// Favorite icon /////////
-              SvgPicture.asset('assets/icons/Favorite.svg'),
+              if (transaction.isFavorite)
+                /////// Favorite icon /////////
+                SvgPicture.asset('assets/icons/Favorite.svg'),
             ],
           )
         ],
