@@ -53,8 +53,13 @@ class _HistoryPageState extends State<HistoryPage> {
               ),
               ////////////// History List ///////
               Expanded(
-                child: ListView.builder(
+                child: ListView.separated(
                     itemCount: allHistory.length,
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(
+                        height: 15,
+                      );
+                    },
                     itemBuilder: (context, index) {
                       TransactionModel transaction = allHistory[index];
                       return TransactionCard(transaction: transaction);

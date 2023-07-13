@@ -4,8 +4,9 @@ class TransactionModel {
   final String number;
   final String amount;
   final String date;
-  final TransactionStatus status;
+  final String status;
   final String type;
+  final String image;
   final String description;
 
   TransactionModel(
@@ -16,6 +17,7 @@ class TransactionModel {
       required this.amount,
       required this.status,
       required this.description,
+      required this.image,
       required this.type});
 }
 

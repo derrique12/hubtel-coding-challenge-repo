@@ -16,7 +16,7 @@ class CustomBottomNavigator extends StatefulWidget {
 }
 
 class _CustomBottomNavigatorState extends State<CustomBottomNavigator> {
-  int selectedIndex = 3;
+  int selectedIndex = 2;
 
   /////////////////// List of bottom navigator pages ///////////////////s
   List<Widget> pages = [

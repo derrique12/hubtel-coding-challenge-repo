@@ -49,7 +49,7 @@ class CustomNavitem extends StatelessWidget {
                       color: isSelected
                           ? Palette.blackColor
                           : Palette.inactiveColor,
-                      fontSize: 12),
+                      fontSize: 11),
                 ),
               ],
             ),
