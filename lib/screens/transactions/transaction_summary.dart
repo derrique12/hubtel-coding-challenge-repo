@@ -12,7 +12,7 @@ class _TransactionSummaryState extends State<TransactionSummary> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('Transaction dummary'),
+        child: Text('Transaction summary'),
       ),
     );
   }
