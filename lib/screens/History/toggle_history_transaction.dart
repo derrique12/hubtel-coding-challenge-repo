@@ -15,6 +15,40 @@ class _ToggleHistoryTransactionState extends State<ToggleHistoryTransaction> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      ////////Sed New //////
+      floatingActionButton: Align(
+        alignment: Alignment.bottomCenter,
+        child: SizedBox(
+          width: 150,
+          child: FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: Palette.primaryColor,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Row(children: [
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.add,
+                    color: Palette.primaryColor,
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  'SEND NEW',
+                  style: TextStyle(color: Colors.white),
+                )
+              ]),
+            ),
+          ),
+        ),
+      ),
+
+      //////Tab Controller ///////
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 15),

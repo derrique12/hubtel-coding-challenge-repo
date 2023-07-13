@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:grouped_list/grouped_list.dart';
 import 'package:hubtel_coding/data/history_data.dart';
 import 'package:hubtel_coding/models/transaction_model.dart';
 import 'package:hubtel_coding/screens/History/components/transaction_card.dart';
 import 'package:hubtel_coding/utils/color_palette.dart';
+
+import '../../widgets/custom_group_list.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({super.key});
@@ -46,7 +49,7 @@ class _HistoryPageState extends State<HistoryPage> {
                     ),
                   ),
                 ),
-
+                const SizedBox(width: 5),
                 //////////////// Filter ///////
                 SvgPicture.asset(
                   'assets/icons/filter.svg',
@@ -55,21 +58,45 @@ class _HistoryPageState extends State<HistoryPage> {
             ),
 
             const SizedBox(
-              height: 30,
+              height: 25,
             ),
             ////////////// History List ///////
             Expanded(
-              child: ListView.separated(
-                  itemCount: allHistory.length,
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(
-                      height: 15,
-                    );
-                  },
-                  itemBuilder: (context, index) {
-                    TransactionModel transaction = allHistory[index];
-                    return TransactionCard(transaction: transaction);
-                  }),
+              child: CustomGroupedListView(
+                elements: allHistory,
+                groupBy: (element) => element.date,
+                groupHeaderBuilder: (element) => Row(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 15.0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 3),
+                      decoration: BoxDecoration(
+                          color: Palette.borderColor,
+                          borderRadius: BorderRadius.circular(40)),
+                      child: Center(
+                        child: Text(
+                          element.date,
+                          style: const TextStyle(
+                              color: Palette.textColor, fontSize: 11),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                groupSeparatorBuilder: const SizedBox(
+                  height: 30,
+                ),
+                itemBuilder: (context, TransactionModel element) =>
+                    TransactionCard(transaction: element),
+                itemComparator: (item1, item2) =>
+                    item1.date.compareTo(item2.date),
+                useStickyGroupSeparators: false,
+                order: GroupedListOrder.DESC,
+                separator: const SizedBox(
+                  height: 15,
+                ),
+              ),
             )
           ],
         ),
