@@ -17,56 +17,61 @@ class _HistoryPageState extends State<HistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-          child: Column(
-            children: [
-              //////////////// Tab /////////////
-              Container(
-                height: 50,
-              ),
-              /////////////// Search and Filter  ///////////
-              Row(
-                children: [
-                  ////////////// Search TextFeild ///////
-                  const Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Palette.borderColor,
-                        hintText: 'Search',
-                        hintStyle: TextStyle(color: Palette.textColor),
-                        border: InputBorder.none,
+        child: Column(
+          children: [
+            //////////////// Tab /////////////
+            const SizedBox(
+              height: 10,
+            ),
+            /////////////// Search and Filter  ///////////
+            Row(
+              children: [
+                ////////////// Search TextFeild ///////
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      isDense: true,
+                      fillColor: Palette.borderColor,
+                      hintText: 'Search',
+                      hintStyle: const TextStyle(color: Palette.textColor),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 0),
+                      prefixIcon: SvgPicture.asset(
+                        'assets/icons/search.svg',
+                        fit: BoxFit.scaleDown,
                       ),
+                      border: const OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
                     ),
                   ),
+                ),
 
-                  //////////////// Filter ///////
-                  SvgPicture.asset(
-                    'assets/icons/filter.svg',
-                  ),
-                ],
-              ),
+                //////////////// Filter ///////
+                SvgPicture.asset(
+                  'assets/icons/filter.svg',
+                ),
+              ],
+            ),
 
-              const SizedBox(
-                height: 30,
-              ),
-              ////////////// History List ///////
-              Expanded(
-                child: ListView.separated(
-                    itemCount: allHistory.length,
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(
-                        height: 15,
-                      );
-                    },
-                    itemBuilder: (context, index) {
-                      TransactionModel transaction = allHistory[index];
-                      return TransactionCard(transaction: transaction);
-                    }),
-              )
-            ],
-          ),
+            const SizedBox(
+              height: 30,
+            ),
+            ////////////// History List ///////
+            Expanded(
+              child: ListView.separated(
+                  itemCount: allHistory.length,
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(
+                      height: 15,
+                    );
+                  },
+                  itemBuilder: (context, index) {
+                    TransactionModel transaction = allHistory[index];
+                    return TransactionCard(transaction: transaction);
+                  }),
+            )
+          ],
         ),
       ),
     );

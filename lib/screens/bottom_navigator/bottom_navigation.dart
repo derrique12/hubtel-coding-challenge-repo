@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hubtel_coding/screens/History/toggle_history_transaction.dart';
 import 'package:hubtel_coding/screens/Schedule/schedule.dart';
 import 'package:hubtel_coding/screens/Send/send.dart';
 import 'package:hubtel_coding/utils/color_palette.dart';
 
-import '../History/history.dart';
 import '../home/home.dart';
 import 'components/custom_nav_item.dart';
 
@@ -22,14 +23,19 @@ class _CustomBottomNavigatorState extends State<CustomBottomNavigator> {
   List<Widget> pages = [
     const HomePage(),
     const SendPage(),
-    const HistoryPage(),
+    const ToggleHistoryTransaction(),
     const SchedulePage()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: pages[selectedIndex],
+        body: AnnotatedRegion<SystemUiOverlayStyle>(
+            value: const SystemUiOverlayStyle(
+                statusBarColor: Colors.white //This is disregarded on iOS
+
+                ),
+            child: pages[selectedIndex]),
         bottomNavigationBar: Container(
           width: double.infinity,
           height: 80,
